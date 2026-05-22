@@ -1,6 +1,4 @@
-# JOKO_MEMO Tauri
-
-这是从 Electron 版迁移出来的独立 Tauri 项目。原项目目录 `/mnt/c/app/CORE_OS` 不需要修改。
+# JOKO_MEMO 
 
 ## 环境
 
