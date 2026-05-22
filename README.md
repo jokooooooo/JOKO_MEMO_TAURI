@@ -1,4 +1,5 @@
 # JOKO_MEMO 
+一个由tauri 构建的个人记事本
 <img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/2463f627-b846-450d-a4bf-a83a27d61a5b" />
 
 <img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/65864eed-947d-4b23-a850-45c5de19d429" />
