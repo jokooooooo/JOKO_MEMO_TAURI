@@ -47,3 +47,20 @@ Tauri 产物一般会明显小于 Electron，但最终大小取决于系统 WebV
 - 后端从 Electron 主进程迁移为 Tauri Rust commands。
 - 数据保存为本地 JSON 文件。
 - 保留主窗口、抽屉窗口、小图标窗口的基本交互。
+  ## 作者与交流
+
+- 项目品牌：JokoAI / joko-image
+- 作者 / 站主：Joko
+- QQ：935764227
+- Telegram：https://t.me/jokoacoount
+- 交流群：1076496247 
+
+## 开源协议
+
+本项目采用 MIT License 开源协议。
+
+你可以自由使用、复制、修改、合并、发布、分发、再授权或销售本项目副本；使用时请保留原始版权声明和许可声明。项目按“现状”提供，不附带任何明示或暗示担保。
+
+## Friendly Links
+
+[![LINUXDO](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA-LINUXDO-0086c9?style=for-the-badge&labelColor=555555)](https://linux.d
