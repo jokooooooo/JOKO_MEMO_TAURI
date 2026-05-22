@@ -1,0 +1,81 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "JOKO_MEMO",
+  "version": "0.1.0",
+  "identifier": "com.joko.memo",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "JOKO_MEMO",
+        "url": "index.html?view=main",
+        "width": 292,
+        "height": 360,
+        "minWidth": 292,
+        "minHeight": 360,
+        "maxWidth": 292,
+        "maxHeight": 360,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": false
+      },
+      {
+        "label": "drawer",
+        "title": "JOKO_MEMO // DRAWER",
+        "url": "index.html?view=drawer",
+        "width": 500,
+        "height": 760,
+        "minWidth": 500,
+        "minHeight": 420,
+        "maxWidth": 500,
+        "maxHeight": 760,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": false,
+        "visible": false
+      },
+      {
+        "label": "icon",
+        "title": "JOKO_MEMO // ICON",
+        "url": "index.html?view=icon",
+        "width": 72,
+        "height": 72,
+        "minWidth": 72,
+        "minHeight": 72,
+        "maxWidth": 72,
+        "maxHeight": 72,
+        "decorations": false,
+        "transparent": true,
+        "resizable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": false,
+        "visible": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi"],
+    "publisher": "JOKO",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ]
+  }
+}

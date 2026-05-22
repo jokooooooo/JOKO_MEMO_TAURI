@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOKO_MEMO</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="widget-cluster" id="widgetCluster">
+        <aside class="drawer drawer--standalone" id="drawer" aria-hidden="true">
+          <div class="scanlines"></div>
+          <div class="drawer__grid"></div>
+          <div class="drawer__canvas" id="drawerCanvas"></div>
+        </aside>
+
+        <main class="core-card">
+          <div class="scanlines"></div>
+          <header class="core-card__header drag-region">
+            <div>
+              <p>JOKO_MEMO</p>
+              <span id="bootStatus">BOOT_SEQUENCE...</span>
+            </div>
+            <div class="window-controls no-drag">
+              <button type="button" id="compactBtn" aria-label="Shrink to icon"><i class="glyph">J</i></button>
+              <button type="button" id="minimizeBtn" aria-label="Minimize"><i class="glyph">-</i></button>
+              <button type="button" id="closeToTrayBtn" aria-label="Hide to tray"><i class="glyph">x</i></button>
+              <span class="drag-handle"><i class="glyph">::</i></span>
+            </div>
+          </header>
+
+          <nav class="nav-stack">
+            <button class="nav-item nav-item--website" type="button" data-tab="website"><i class="glyph">W</i><span>WEBSITES // 网络</span></button>
+            <button class="nav-item nav-item--task" type="button" data-tab="task"><i class="glyph">T</i><span>TASKS // 任务</span></button>
+            <button class="nav-item nav-item--note" type="button" data-tab="note"><i class="glyph">N</i><span>NOTES // 笔记</span></button>
+          </nav>
+
+          <section class="telemetry-grid">
+            <div class="metric"><span>DOMAINS</span><strong id="metricWebsites">00</strong></div>
+            <div class="metric"><span>TASKS</span><strong id="metricTasks">00</strong></div>
+            <div class="metric" id="pendingMetric"><span>PENDING</span><strong id="metricPending">00</strong></div>
+          </section>
+
+          <button class="sync-button" id="syncBtn" type="button"><i class="glyph">S</i><span>SYNC_DATA</span></button>
+        </main>
+      </div>
+
+      <button class="mini-orb hidden" id="miniOrb" type="button" aria-label="Restore JOKO_MEMO">
+        <span class="mini-orb__ring"></span>
+        <span class="mini-orb__core">J</span>
+        <span class="mini-orb__caption">MEMO</span>
+      </button>
+    </div>
+
+    <div class="modal-overlay hidden" id="modalOverlay" role="dialog" aria-modal="true">
+      <div class="scanlines"></div>
+      <form class="hud-modal" id="entityForm">
+        <div class="corner corner--tl"></div>
+        <div class="corner corner--tr"></div>
+        <div class="corner corner--bl"></div>
+        <div class="corner corner--br"></div>
+        <header class="hud-modal__header">
+          <div>
+            <p class="hud-label" id="modalMode">DATA_ENTRY</p>
+            <h2 id="modalTitle">[ADD_SEQUENCE]</h2>
+          </div>
+          <button class="icon-button icon-button--danger" id="modalCloseBtn" type="button" aria-label="Close"><i class="glyph">x</i></button>
+        </header>
+        <section class="hud-modal__meta">
+          <span id="modalId">ID: [AUTO_ALLOCATE]</span>
+          <span id="modalStamp">STAMP: [NOW]</span>
+        </section>
+        <section class="hud-modal__body" id="modalBody"></section>
+        <div class="system-error hidden" id="modalError">SYSTEM_ERROR: NULL_VALUE</div>
+        <div class="sync-strip hidden" id="modalSync">
+          <span>UPLINK_STREAM</span>
+          <div class="progress-blocks progress-blocks--animated" id="modalProgress"></div>
+        </div>
+        <footer class="hud-modal__footer">
+          <button type="button" class="hud-button hud-button--muted" id="cancelBtn">CANCEL // 取消</button>
+          <button type="submit" class="hud-button" id="saveBtn">SYNC_DATA // 保存</button>
+        </footer>
+      </form>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
