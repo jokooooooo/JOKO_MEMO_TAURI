@@ -65,4 +65,4 @@ Tauri 产物一般会明显小于 Electron，但最终大小取决于系统 WebV
 
 ## Friendly Links
 
-[![LINUXDO](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA-LINUXDO-0086c9?style=for-the-badge&labelColor=555555)](https://linux.d
+[![LINUXDO](https://img.shields.io/badge/%E7%A4%BE%E5%8C%BA-LINUXDO-0086c9?style=for-the-badge&labelColor=555555)]
