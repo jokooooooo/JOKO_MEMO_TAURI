@@ -7,6 +7,15 @@ use tauri::{
     WebviewWindowBuilder,
 };
 
+#[cfg(target_os = "windows")]
+use std::ffi::OsStr;
+#[cfg(target_os = "windows")]
+use std::os::windows::ffi::OsStrExt;
+#[cfg(target_os = "windows")]
+use windows_sys::Win32::UI::Shell::ShellExecuteW;
+#[cfg(target_os = "windows")]
+use windows_sys::Win32::UI::WindowsAndMessaging::SW_SHOWNORMAL;
+
 const MAIN_WIDTH: i32 = 292;
 const ICON_SIZE: i32 = 72;
 const DRAWER_WIDTH: i32 = 500;
@@ -415,10 +424,22 @@ fn open_external(_app: AppHandle, raw_url: String) -> Result<(), String> {
 
     #[cfg(target_os = "windows")]
     {
-        std::process::Command::new("cmd")
-            .args(["/C", "start", "", &url])
-            .spawn()
-            .map_err(|error| format!("open url failed: {error}"))?;
+        let operation = wide_null("open");
+        let target = wide_null(&url);
+        let result = unsafe {
+            ShellExecuteW(
+                std::ptr::null_mut(),
+                operation.as_ptr(),
+                target.as_ptr(),
+                std::ptr::null(),
+                std::ptr::null(),
+                SW_SHOWNORMAL,
+            )
+        } as isize;
+
+        if result <= 32 {
+            return Err(format!("open url failed with ShellExecuteW code {result}"));
+        }
     }
 
     #[cfg(target_os = "macos")]
@@ -438,6 +459,14 @@ fn open_external(_app: AppHandle, raw_url: String) -> Result<(), String> {
     }
 
     Ok(())
+}
+
+#[cfg(target_os = "windows")]
+fn wide_null(value: &str) -> Vec<u16> {
+    OsStr::new(value)
+        .encode_wide()
+        .chain(std::iter::once(0))
+        .collect()
 }
 
 fn ensure_window<R: Runtime>(
